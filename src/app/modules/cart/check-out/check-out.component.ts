@@ -13,7 +13,7 @@ import { updatecart, updatestatuses } from '../../../core/store/Cart/Cart.Action
 export class CheckoutComponent implements OnInit {
   dataSource: Cart[] = [];
   ordersTotalPrice: number = 0;
-  displayedColumns: string[] = ['id', 'productname', 'quantity', 'totalPrice'];
+  displayedColumns: string[] = ['id', 'productname', 'quantity', 'totalPrice', 'status'];
 
   constructor(
     private router: Router,
@@ -31,10 +31,9 @@ export class CheckoutComponent implements OnInit {
     }
   }
   confirmCheckout(): void {
-    this.dataSource.forEach(cart => ({
-      ...cart,
-      status: 'pending'
-    }));
+    this.dataSource.forEach(cart => {
+      cart.status = 'pending';
+    });
     this.store.dispatch(updatestatuses({ cartList: this.dataSource }));
     console.log('Updated',this.dataSource);
   }

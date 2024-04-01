@@ -30,7 +30,6 @@ export class CartListComponent implements OnInit {
     "quantity",
     "unitPrice",
     "totalPrice",
-    "status",
     "action",
   
   ];

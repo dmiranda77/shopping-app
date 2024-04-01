@@ -1,7 +1,6 @@
 <mat-card style="min-height: 500px;">
-  <mat-card-header style="display: flex; justify-content: space-between;">
-    <h1>Your orders are under process</h1>
-    <button mat-raised-button color="primary" (click)="navigateBackToCart()">Back to Cart</button>
+  <mat-card-header style="justify-content: space-between; font-size: 18px;">
+    <mat-card-title>Review the following products before check-out</mat-card-title>
   </mat-card-header>
   <mat-card-content style="display: flex; flex-direction: column;">
     <mat-table [dataSource]="dataSource">
@@ -11,7 +10,7 @@
         <mat-cell *matCellDef="let cartItem">{{ cartItem.id }}</mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="productname">
+      <ng-container matColumnDef="productname" >
         <mat-header-cell *matHeaderCellDef>Product Name</mat-header-cell>
         <mat-cell *matCellDef="let cartItem">{{ cartItem.productname }}</mat-cell>
       </ng-container>
@@ -21,20 +20,28 @@
         <mat-cell *matCellDef="let cartItem">{{ cartItem.quantity }}</mat-cell>
       </ng-container>
 
-
       <ng-container matColumnDef="totalPrice">
         <mat-header-cell *matHeaderCellDef>Sub Total</mat-header-cell>
-        <mat-cell *matCellDef="let cartItem">{{ cartItem.totalPrice }}</mat-cell>
+        <mat-cell *matCellDef="let cartItem"> ₱ {{ cartItem.totalPrice }}.00</mat-cell>
       </ng-container>
-
+      
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+        <mat-cell *matCellDef="let cartItem">{{ cartItem.status }}</mat-cell>
+      </ng-container>
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
   </mat-card-content>
-  <mat-card-footer align-items="end" style="display: flex; justify-content: space-between;">
-    <p style="margin-top: 20px; align-self: flex-end;">Total Price: {{ ordersTotalPrice }}</p>
-    <button mat-raised-button color="primary" (click)="confirmCheckout()">Confirm</button>
-
-  </mat-card-footer>
-    
+  <mat-card-footer style="display: flex; font-size: 18px; align-self: flex-end;">
+    <p style="margin-top: 20px; align-self: flex-end;">Ammount Payable: ₱{{ ordersTotalPrice }}.00</p>
+  </mat-card-footer><br><br><br>
+  <div style="display: flex; font-size: 18px; align-self: flex-end;">
+    <p>confim submission of orders?</p>
+  </div>
+  <div style="display: flex; font-size: 18px; align-self: flex-end;">
+    <button mat-raised-button color="primary" (click)="navigateBackToCart()">Back to Cart</button>
+  <button mat-raised-button color="primary" (click)="confirmCheckout()">Confirm</button><br><br>
+  </div>
+  
 </mat-card>
