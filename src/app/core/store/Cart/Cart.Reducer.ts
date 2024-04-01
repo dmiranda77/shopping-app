@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { CartState } from "./Cart.State"; 
-import { addtocartsuccess, deletefromcartsuccess, getcartsuccess, getmaxidsuccess, loadcartfail, loadcartsuccess, opencartpopup, updatecartsuccess } from "./Cart.Action";
+import { addtocartsuccess, deletefromcartsuccess, getcartsuccess, getmaxidsuccess, loadcartfail, loadcartsuccess, opencartpopup, updatecartsuccess, updatestatuses } from "./Cart.Action";
 
 const _CartReducer = createReducer(CartState,
 
@@ -41,6 +41,13 @@ const _CartReducer = createReducer(CartState,
             errormessage: ''
         }
     }),
+    on(updatestatuses, (state, { cartList }) => ({
+        ...state,
+        cartList: cartList.map(cartItem => ({
+          ...cartItem,
+          status: 'pending' 
+        }))
+      })),
     on(updatecartsuccess, (state, action) => {
         const _newdata = state.list.map(o => {
             return o.id === action.inputdata.id ? action.inputdata : o

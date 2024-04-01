@@ -18,6 +18,8 @@ import { Cart } from '../../../../shared/models/cart';
 })
 export class ProductListComponent implements OnInit {
 
+  minPrice: number = 0;
+  maxPrice: number = 0;
   ProductList!: Products[];
   datasource: any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -60,12 +62,43 @@ export class ProductListComponent implements OnInit {
   See(cart: Products){
     console.log(cart)
   }
-  clearFilters(searchInputValue: string, categorySelect: any) {
+  clearFilters(searchInput: HTMLInputElement, categorySelect: any) {
     if (categorySelect instanceof HTMLSelectElement) {
       categorySelect.value = '';
     }
   
+    if (searchInput) {
+      searchInput.value = '';
+    }
+  
     this.applyFilter('', ''); 
+  }
+  applyPriceFilter(): void {
+    let filteredData = this.ProductList;
+  
+    if (this.minPrice !== undefined && this.minPrice !== null && this.minPrice >= 0) {
+      filteredData = filteredData.filter(product => product.price >= this.minPrice);
+    }
+  
+    if (this.maxPrice !== undefined && this.maxPrice !== null && this.maxPrice >= 0) {
+      filteredData = filteredData.filter(product => product.price <= this.maxPrice);
+    }
+  
+    this.datasource = new MatTableDataSource<Products>(filteredData);
+  }
+  
+
+
+  sortByName(order: string): void {
+    let sortedList: Products[];
+  
+    if (order === 'asc') {
+      sortedList = [...this.ProductList].sort((a, b) => a.productname.localeCompare(b.productname));
+    } else {
+      sortedList = [...this.ProductList].sort((a, b) => b.productname.localeCompare(a.productname));
+    }
+  
+    this.datasource = new MatTableDataSource<Products>(sortedList);
   }
   
   

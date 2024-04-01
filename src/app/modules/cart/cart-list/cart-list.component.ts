@@ -4,7 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { Cart } from '../../../shared/models/cart';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { deletefromcart, getcart, loadcart, opencartpopup } from '../../../core/store/Cart/Cart.Action';
+import { deletefromcart, getcart, loadcart, opencartpopup, updatecart } from '../../../core/store/Cart/Cart.Action';
 import { MatTableDataSource } from '@angular/material/table';
 import { getcartlist } from '../../../core/store/Cart/Cart.Selector';
 import { AddOrderComponent } from '../../product/pages/add-order/add-order.component';
@@ -51,7 +51,9 @@ export class CartListComponent implements OnInit {
   }
 
   CheckOutPage() {
+    localStorage.setItem('cartList', JSON.stringify(this.CartList));
     this.router.navigate(['/checkout'], { state: { dataSource: this.CartList } });
+    console.log(this.CartList);
   }
   
 
@@ -71,13 +73,11 @@ export class CartListComponent implements OnInit {
   ){
     this.OpenPopup(id, 'Update Order', orderId, productname, quantity, unitPrice, totalPrice);
     this.store.dispatch(getcart({id:id}));
-    console.log('id to add: ', id);  
   }
 
   FunctionDelete(code:number){
     if(confirm('do you want to remove this from cart?')){
-      this.store.dispatch(deletefromcart({code:code}));
-      console.log(code);
+      this.store.dispatch(deletefromcart({code:code})); 
     }
   }
 

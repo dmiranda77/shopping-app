@@ -6,16 +6,31 @@
     <input matInput type="text" placeholder="Search" #searchInput>
   </mat-form-field>
   <button mat-raised-button color="primary"  (click)="applyFilter(searchInput.value, categorySelect.value)">SEARCH</button>
-  <button mat-raised-button color="warn" (click)="clearFilters(searchInput.value, categorySelect.value)">CLEAR</button>
+  <button mat-raised-button color="warn" (click)="clearFilters(searchInput, categorySelect.value)">CLEAR</button>
   </div>
+  <div class="search">
+    <mat-form-field appearance="fill" style="width: 300px;">
+      <mat-label>Min Price</mat-label>
+      <input matInput type="number" placeholder="Min Price" [(ngModel)]="minPrice">
+    </mat-form-field>
+    <mat-form-field appearance="fill" style="width: 300px;">
+      <mat-label>Max Price</mat-label>
+      <input matInput type="number" placeholder="Max Price" [(ngModel)]="maxPrice">
+    </mat-form-field>
+    <button mat-raised-button color="primary"(click)="applyPriceFilter()">Apply</button>
+  </div>
+  
+
 
   <mat-form-field appearance="fill" style="width: 250px; height: 80px">
     <mat-label>Category</mat-label>
     <mat-select #categorySelect (selectionChange)="applyFilter(searchInput.value, categorySelect.value)">
       <mat-option *ngFor="let category of uniqueCategories" [value]="category">{{ category }}</mat-option>
     </mat-select>
+
   </mat-form-field>
- 
+  <button mat-raised-button color="primary" (click)="sortByName('asc')">Sort A-Z</button>
+  <button mat-raised-button color="primary" (click)="sortByName('desc')">Sort Z-A</button>
  
  
   <mat-grid-list cols="4" rowHeight="1:1">

@@ -7,7 +7,10 @@ export const LOAD_CART_FAIL = '[Cart Page] Load Cart Fail';
 export const ADD_TO_CART = '[Cart Page] Add To Cart';
 export const ADD_TO_CART_SUCCESS = '[Cart Page] Add To Cart Success';
 export const UPDATE_CART = '[Cart Page] Update Cart';
+export const UPDATE_STATUSES = '[Cart Page] Update Statuses'
+
 export const UPDATE_CART_SUCCESS = '[Cart Page] Update Cart Success';
+export const UPDATE_STATUSES_SUCCESS = '[Cart Page] Update Statuses Success';
 export const DELETE_FROM_CART = '[Cart Page] Delete From Cart';
 export const DELETE_FROM_CART_SUCCESS = '[Cart Page] Delete From Cart Success';
 export const GET_CART= '[Cart Page] Get Cart';
@@ -25,7 +28,9 @@ export const addtocart= createAction(ADD_TO_CART, props<{ inputdata: Cart }>());
 export const addtocartsuccess = createAction(ADD_TO_CART_SUCCESS, props<{ inputdata: Cart }>());
 
 export const updatecart = createAction(UPDATE_CART, props<{ inputData: Cart }>());
+export const updatestatuses = createAction(UPDATE_STATUSES, props<{ cartList: Cart[]}>())
 export const updatecartsuccess = createAction(UPDATE_CART_SUCCESS, props<{ inputdata: Cart }>());
+export const updatestatusessuccess = createAction(UPDATE_STATUSES_SUCCESS, props<{ inputdata: Cart }>());
 
 export const deletefromcart = createAction(DELETE_FROM_CART, props<{ code: number }>());
 export const deletefromcartsuccess = createAction(DELETE_FROM_CART_SUCCESS, props<{ code: number }>());

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cart } from '../../../shared/models/cart';
+import { ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { updatecart, updatestatuses } from '../../../core/store/Cart/Cart.Action';
 
 @Component({
   selector: 'app-check-out',
@@ -9,28 +12,38 @@ import { Cart } from '../../../shared/models/cart';
 })
 export class CheckoutComponent implements OnInit {
   dataSource: Cart[] = [];
-  displayedColumns: string[] = ['productname', 'quantity', 'unitPrice', 'totalPrice'];
   ordersTotalPrice: number = 0;
+  displayedColumns: string[] = ['id', 'productname', 'quantity', 'totalPrice'];
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private store: Store,)
+
+    { }
 
   ngOnInit(): void {
-    const navigation = this.router.getCurrentNavigation();
-    if (navigation && navigation.extras && navigation.extras.state) {
-      this.ordersTotalPrice = this.calculateTotalPrice();
-    } else {
+    const storedCartList = localStorage.getItem('cartList');
+    if (storedCartList) {
+      this.dataSource = JSON.parse(storedCartList);
+      this.ordersTotalPrice = this.calculateTotalPrice(this.dataSource);
+      console.log('Order Total Price:', this.ordersTotalPrice);
     }
+  }
+  confirmCheckout(): void {
+    this.dataSource.forEach(cart => ({
+      ...cart,
+      status: 'pending'
+    }));
+    this.store.dispatch(updatestatuses({ cartList: this.dataSource }));
+    console.log('Updated',this.dataSource);
   }
 
   navigateBackToCart(): void {
     this.router.navigate(['/cart']);
   }
 
-  calculateTotalPrice(): number {
-    let totalPrice = 0;
-    for (const item of this.dataSource) {
-      totalPrice += item.totalPrice;
-    }
-    return totalPrice;
+  calculateTotalPrice(dataSource: Cart[]): number {
+    return dataSource.reduce((total, cart) => total + cart.totalPrice, 0);
   }
 }
