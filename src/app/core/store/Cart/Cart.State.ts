@@ -15,5 +15,5 @@ export const CartState:CartModel={
         totalPrice: 0,
         status: '',
     },
-    maxId: 0
+    maxId: 0    
 }

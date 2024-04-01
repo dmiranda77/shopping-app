@@ -7,4 +7,11 @@
   .product-card-content {
     line-height: 1; /* Adjust the value as needed */
   }
+  .example-flex-container {
+    display: flex;
+    justify-content: flex-end;
+  }
   
+  .example-button-container {
+    margin-right: 10px; /* Adjust margin as needed */
+  }

@@ -70,9 +70,11 @@ export class CartListComponent implements OnInit {
     productname: string,
     quantity: number,
     unitPrice: number,
-    totalPrice: number
+    totalPrice: number,
+    userId: number,
+    username: string
   ){
-    this.OpenPopup(id, 'Update Order', orderId, productname, quantity, unitPrice, totalPrice);
+    this.OpenPopup(id, 'Update Order', orderId, productname, quantity, unitPrice, totalPrice,userId, username);
     this.store.dispatch(getcart({id:id}));
   }
 
@@ -89,7 +91,9 @@ export class CartListComponent implements OnInit {
     productname: string,
     quantity: number,
     unitPrice: number,
-    totalPrice: number
+    totalPrice: number,
+    userId: number,
+    username: string
   ) {
     this.store.dispatch(opencartpopup());
     this.dialog.open(AddOrderComponent, {
@@ -103,7 +107,10 @@ export class CartListComponent implements OnInit {
         productname: productname,
         quantity: quantity,
         unitPrice: unitPrice,
-        totalPrice: totalPrice
+        totalPrice: totalPrice,
+        userId: userId,
+        username: username,
+        
       }
     });
   }

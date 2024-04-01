@@ -13,7 +13,7 @@ import { updatecart, updatestatuses } from '../../../core/store/Cart/Cart.Action
 export class CheckoutComponent implements OnInit {
   dataSource: Cart[] = [];
   ordersTotalPrice: number = 0;
-  displayedColumns: string[] = ['id', 'productname', 'quantity', 'totalPrice', 'status'];
+  displayedColumns: string[] = ['id', 'productname', 'quantity',  'status','totalPrice',];
 
   constructor(
     private router: Router,

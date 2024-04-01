@@ -20,19 +20,22 @@
         <mat-cell *matCellDef="let cartItem">{{ cartItem.quantity }}</mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="totalPrice">
-        <mat-header-cell *matHeaderCellDef>Sub Total</mat-header-cell>
-        <mat-cell *matCellDef="let cartItem"> ₱ {{ cartItem.totalPrice }}.00</mat-cell>
-      </ng-container>
-      
+            
       <ng-container matColumnDef="status">
         <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
         <mat-cell *matCellDef="let cartItem">{{ cartItem.status }}</mat-cell>
       </ng-container>
+      
+      <ng-container matColumnDef="totalPrice">
+        <mat-header-cell *matHeaderCellDef>Sub Total</mat-header-cell>
+        <mat-cell *matCellDef="let cartItem"> ₱ {{ cartItem.totalPrice }}.00</mat-cell>
+      </ng-container>
+
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
   </mat-card-content>
+  <mat-divider></mat-divider>
   <mat-card-footer style="display: flex; font-size: 18px; align-self: flex-end;">
     <p style="margin-top: 20px; align-self: flex-end;">Ammount Payable: ₱{{ ordersTotalPrice }}.00</p>
   </mat-card-footer><br><br><br>
@@ -40,7 +43,7 @@
     <p>confim submission of orders?</p>
   </div>
   <div style="display: flex; font-size: 18px; align-self: flex-end;">
-    <button mat-raised-button color="primary" (click)="navigateBackToCart()">Back to Cart</button>
+    <button mat-raised-button color="accent" (click)="navigateBackToCart()">Back to Cart</button>
   <button mat-raised-button color="primary" (click)="confirmCheckout()">Confirm</button><br><br>
   </div>
   

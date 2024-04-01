@@ -10,6 +10,7 @@ import { getproductlist } from '../../../../core/store/Product/Product.Selector'
 import { AddOrderComponent } from '../add-order/add-order.component';
 import { opencartpopup } from '../../../../core/store/Cart/Cart.Action';
 import { Cart } from '../../../../shared/models/cart';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -46,7 +47,8 @@ export class ProductListComponent implements OnInit {
   "image"]
   constructor(
     private dialog: MatDialog,
-     private store: Store) {
+     private store: Store,
+     private router: Router) {
 
   }
   ngOnInit(): void {
@@ -59,8 +61,8 @@ export class ProductListComponent implements OnInit {
     });
   }
   CartList!: Cart[];
-  See(cart: Products){
-    console.log(cart)
+  GotoCart() {
+    this.router.navigate(['/cart']);
   }
   clearFilters(searchInput: HTMLInputElement, categorySelect: any) {
     if (categorySelect instanceof HTMLSelectElement) {
