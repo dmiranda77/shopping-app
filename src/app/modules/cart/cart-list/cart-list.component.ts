@@ -30,7 +30,9 @@ export class CartListComponent implements OnInit {
     "quantity",
     "unitPrice",
     "totalPrice",
-    "action"
+    "status",
+    "action",
+  
   ];
 
   constructor(private dialog: MatDialog, private store: Store, private router: Router) {}
