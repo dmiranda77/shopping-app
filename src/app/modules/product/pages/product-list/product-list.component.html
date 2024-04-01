@@ -1,0 +1,42 @@
+<b class="productbold" style="font-size: 2em;">Products</b><br/>
+<div>
+  <div class="search">
+  <mat-form-field appearance="fill" style="width: 300px; height: 80px">
+    <mat-label>Search here</mat-label>
+    <input matInput type="text" placeholder="Search" #searchInput>
+  </mat-form-field>
+  <button mat-raised-button color="primary"  (click)="applyFilter(searchInput.value, categorySelect.value)">SEARCH</button>
+  <button mat-raised-button color="warn" (click)="clearFilters(searchInput.value, categorySelect.value)">CLEAR</button>
+  </div>
+
+  <mat-form-field appearance="fill" style="width: 250px; height: 80px">
+    <mat-label>Category</mat-label>
+    <mat-select #categorySelect (selectionChange)="applyFilter(searchInput.value, categorySelect.value)">
+      <mat-option *ngFor="let category of uniqueCategories" [value]="category">{{ category }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+ 
+ 
+ 
+  <mat-grid-list cols="4" rowHeight="1:1">
+    <mat-grid-tile *ngFor="let data of datasource.filteredData" [colspan]="1" [rowspan]="1">
+      <mat-card class="product-card">
+        <mat-card-header>
+          <mat-card-title>{{ data.productname }}</mat-card-title>
+          <mat-card-subtitle>{{ data.description }}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="product-card-content">
+          <p>Category: {{ data.category }}</p>
+          <p>Brand: {{ data.brand }}</p>
+          <p>Unit Price: ₱ {{ data.price }}</p>
+          <p>Available Stocks: {{ data.stockCount }}</p>
+          <p>Sold: {{ data.orderCount }}</p>
+          <p>image: {{ data.image }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button (click)="seeData(data, 1, data.Id)" mat-raised-button color="primary">Add to Cart</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

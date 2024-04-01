@@ -1,0 +1,289 @@
+{
+  "cart": [
+    {
+      "id": "2",
+      "orderId": "diana2",
+      "productname": "Razer BlackShark V2 Pro",
+      "quantity": "2",
+      "unitPrice": 12000,
+      "totalPrice": 24000,
+      "status": "forPayment"
+    },
+    {
+      "id": "3",
+      "orderId": "diana3",
+      "productId": "1",
+      "quantity": 1,
+      "userId": 1,
+      "username": "diana",
+      "productname": "Dell XPS 13",
+      "unitPrice": 80000,
+      "totalPrice": 80000,
+      "status": "forPayment"
+    },
+    {
+      "id": "4",
+      "orderId": "diana4",
+      "userId": 1,
+      "username": "diana",
+      "productname": "Apple MacBook Pro 14",
+      "quantity": "2",
+      "unitPrice": 100000,
+      "totalPrice": 200000,
+      "status": "forPayment"
+    },
+    {
+      "id": "5",
+      "orderId": "diana5",
+      "userId": 1,
+      "username": "diana",
+      "productname": "Anker PowerCore 26800 Portable Charger",
+      "quantity": "2",
+      "unitPrice": 3000,
+      "totalPrice": 6000,
+      "status": "forPayment"
+    },
+    {
+      "id": 7,
+      "orderId": 99,
+      "userId": 1,
+      "username": "diana",
+      "productname": "Acer Predator Helios 300",
+      "quantity": "2",
+      "unitPrice": 70000,
+      "totalPrice": 140000,
+      "status": "forPayment"
+    },
+    {
+      "id": 8,
+      "orderId": 99,
+      "productname": "Razer BlackShark V2 Pro",
+      "quantity": 1,
+      "unitPrice": 12000,
+      "totalPrice": 12000,
+      "status": "forPayment"
+    },
+    {
+      "id": 9,
+      "orderId": "diana2",
+      "productname": "Razer BlackShark V2 Pro",
+      "quantity": "1",
+      "unitPrice": 12000,
+      "totalPrice": 12000,
+      "status": "forPayment"
+    },
+    {
+      "id": 10,
+      "orderId": 99,
+      "productname": "Acer Predator Helios 300",
+      "quantity": 1,
+      "unitPrice": 70000,
+      "totalPrice": 70000,
+      "status": "forPayment"
+    }
+  ],
+  "orders": [],
+  "products": [
+    {
+      "id": "1",
+      "productname": "Dell XPS 13",
+      "description": "13-inch laptop with stunning InfinityEdge display",
+      "price": 80000,
+      "category": "laptop",
+      "brand": "Dell",
+      "image": "oh hello",
+      "orderCount": 100,
+      "stockCount": 201
+    },
+    {
+      "id": "2",
+      "productname": "Samsung Galaxy S22 Ultra",
+      "description": "Flagship smartphone with advanced camera features",
+      "price": 70000,
+      "category": "phone",
+      "brand": "Samsung",
+      "orderCount": 29,
+      "stockCount": 200
+    },
+    {
+      "id": "3",
+      "productname": "PlayStation 5",
+      "description": "Next-gen gaming console for immersive gaming experiences",
+      "price": 35000,
+      "category": "gaming devices",
+      "brand": "Sony",
+      "orderCount": 80,
+      "stockCount": 190
+    },
+    {
+      "id": "4",
+      "productname": "Nintendo Switch",
+      "description": "Hybrid gaming console for gaming on-the-go",
+      "price": 20000,
+      "category": "gaming devices",
+      "brand": "Nintendo",
+      "orderCount": 12,
+      "stockCount": 100
+    },
+    {
+      "id": "5",
+      "productname": "FIFA 22",
+      "description": "Popular soccer simulation game",
+      "price": 2500,
+      "category": "games",
+      "brand": "EA Sports",
+      "orderCount": 90,
+      "stockCount": 201
+    },
+    {
+      "id": "6",
+      "productname": "Logitech G Pro X Superlight",
+      "description": "Ultra-lightweight wireless gaming mouse",
+      "price": 6000,
+      "category": "gadget accessories",
+      "brand": "Logitech",
+      "orderCount": 20,
+      "stockCount": 390
+    },
+    {
+      "id": "7",
+      "productname": "Apple MacBook Pro 14",
+      "description": "Powerful laptop for professionals and creatives",
+      "price": 100000,
+      "category": "laptop",
+      "brand": "Apple",
+      "orderCount": 100,
+      "stockCount": 500
+    },
+    {
+      "id": "8",
+      "productname": "iPhone 13 Pro Max",
+      "description": "Premium iPhone with Pro camera system",
+      "price": 90000,
+      "category": "phone",
+      "brand": "Apple",
+      "orderCount": 300,
+      "stockCount": 1000
+    },
+    {
+      "id": "9",
+      "productname": "Razer BlackShark V2 Pro",
+      "description": "Wireless gaming headset with THX spatial audio",
+      "price": 12000,
+      "category": "gadget accessories",
+      "brand": "Razer",
+      "orderCount": 90,
+      "stockCount": 1000
+    },
+    {
+      "id": "10",
+      "productname": "Acer Predator Helios 300",
+      "description": "High-performance gaming laptop with NVIDIA GeForce RTX 30 series GPU",
+      "price": 70000,
+      "category": "laptop",
+      "brand": "Acer",
+      "orderCount": 320,
+      "stockCount": 1000
+    },
+    {
+      "id": "11",
+      "productname": "OnePlus 10 Pro",
+      "description": "Flagship smartphone with OxygenOS",
+      "price": 65000,
+      "category": "phone",
+      "brand": "OnePlus",
+      "orderCount": 50,
+      "stockCount": 1000
+    },
+    {
+      "id": "12",
+      "productname": "Xbox Series X",
+      "description": "Next-gen gaming console with 4K gaming capabilities",
+      "price": 30000,
+      "category": "gaming devices",
+      "brand": "Microsoft",
+      "orderCount": 300,
+      "stockCount": 1000
+    },
+    {
+      "id": "13",
+      "productname": "The Legend of Zelda: Breath of the Wild",
+      "description": "Open-world adventure game for Nintendo Switch",
+      "price": 3000,
+      "category": "games",
+      "brand": "Nintendo",
+      "orderCount": 20,
+      "stockCount": 1000
+    },
+    {
+      "id": "14",
+      "productname": "Anker PowerCore 26800 Portable Charger",
+      "description": "High-capacity power bank for charging gadgets on-the-go",
+      "price": 3000,
+      "category": "gadget accessories",
+      "brand": "Anker",
+      "orderCount": 20,
+      "stockCount": 1000
+    },
+    {
+      "id": "15",
+      "productname": "Asus ROG Phone 5",
+      "description": "Gaming smartphone with Snapdragon 888 processor",
+      "price": 55000,
+      "category": "phone",
+      "brand": "Asus",
+      "orderCount": 128,
+      "stockCount": 600
+    },
+    {
+      "id": "16",
+      "productname": "Lenovo Legion 5",
+      "description": "Gaming laptop with AMD Ryzen processor",
+      "price": 60000,
+      "category": "laptop",
+      "brand": "Lenovo",
+      "orderCount": 300,
+      "stockCount": 1000
+    },
+    {
+      "id": "17",
+      "productname": "Logitech G Pro X Keyboard",
+      "description": "Mechanical gaming keyboard with customizable switches",
+      "price": 8000,
+      "category": "gadget accessories",
+      "brand": "Logitech",
+      "orderCount": 200,
+      "stockCount": 1000
+    },
+    {
+      "id": "18",
+      "productname": "SteelSeries Arctis 7",
+      "description": "Wireless gaming headset with DTS Headphone:X v2.0",
+      "price": 10000,
+      "category": "gadget accessories",
+      "brand": "SteelSeries",
+      "orderCount": 280,
+      "stockCount": 1000
+    },
+    {
+      "id": "19",
+      "productname": "Samsung Odyssey G7",
+      "description": "Curved gaming monitor with QLED technology",
+      "price": 40000,
+      "category": "gaming devices",
+      "brand": "Samsung",
+      "orderCount": 886,
+      "stockCount": 991
+    },
+    {
+      "id": "20",
+      "productname": "Cyberpunk 2077",
+      "description": "Action role-playing game set in a futuristic open world",
+      "price": 2500,
+      "category": "games",
+      "brand": "CD Projekt",
+      "orderCount": 30,
+      "stockCount": 100
+    }
+  ]
+}

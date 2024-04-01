@@ -1,0 +1,24 @@
+<mat-card style= "min-height: 500px;">
+    <mat-card-header>
+      <h1>Your orders are now created</h1>
+      <button mat-raised-button color="primary" (click)="navigateBackToCart()">Back to Cart</button>
+    </mat-card-header>
+    <mat-card-content>
+      <table mat-table class="mat-elevation-z8">
+        <ng-container matColumnDef="productname">
+          <th mat-header-cell *matHeaderCellDef>Product</th>
+          <td mat-cell *matCellDef="let element">{{ element.productname }}</td>
+        </ng-container>
+        <ng-container matColumnDef="totalPrice">
+          <th mat-header-cell *matHeaderCellDef>Subtotal</th>
+          <td mat-cell *matCellDef="let element">{{ element.totalPrice }}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+    <mat-card-footer>
+      <div>Total Price: {{ ordersTotalPrice }}</div>
+    </mat-card-footer>
+  </mat-card>
+  
