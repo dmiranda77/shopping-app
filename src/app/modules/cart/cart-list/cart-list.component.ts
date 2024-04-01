@@ -39,7 +39,8 @@ export class CartListComponent implements OnInit {
   ngOnInit(): void {
     this.store.dispatch(loadcart());
     this.store.select(getcartlist).subscribe(item => {
-      this.CartList = item.filter(cart => cart.username === 'diana' && cart.status === 'forPayment');
+      // this.CartList = item.filter(cart => cart.username === 'diana' && cart.status === 'forPayment');
+      this.CartList = item.filter(cart => cart.status === 'forPayment');
       this.ordersTotalPrice = this.calculateTotalPrice(this.CartList);
       this.datasource = new MatTableDataSource<Cart>(this.CartList);
       this.datasource.paginator = this.paginator;
@@ -74,7 +75,7 @@ export class CartListComponent implements OnInit {
     userId: number,
     username: string
   ){
-    this.OpenPopup(id, 'Update Order', orderId, productname, quantity, unitPrice, totalPrice,userId, username);
+    this.OpenPopup(id, 'Update Order', orderId, productname, quantity, unitPrice, totalPrice, userId, username);
     this.store.dispatch(getcart({id:id}));
   }
 

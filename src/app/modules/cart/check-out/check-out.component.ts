@@ -4,6 +4,7 @@ import { Cart } from '../../../shared/models/cart';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { updatecart, updatestatuses } from '../../../core/store/Cart/Cart.Action';
+import { CartService } from '../../../core/services/cart.service';
 
 @Component({
   selector: 'app-check-out',
@@ -18,7 +19,8 @@ export class CheckoutComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private store: Store,)
+    private store: Store,
+    private cartService: CartService)
 
     { }
 
@@ -36,6 +38,12 @@ export class CheckoutComponent implements OnInit {
     });
     this.store.dispatch(updatestatuses({ cartList: this.dataSource }));
     console.log('Updated',this.dataSource);
+    this.cartService.UpdateStatusesToPending(this.dataSource)
+    .subscribe(() => {
+      console.log('Statuses updated to pending');
+    }, error => {
+      console.error('Error updating statuses:', error);
+    });
   }
 
   navigateBackToCart(): void {

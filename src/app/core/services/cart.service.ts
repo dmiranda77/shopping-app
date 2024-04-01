@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Cart } from '../../shared/models/cart';
-import { Observable, map } from 'rxjs';
+import { Observable, forkJoin, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +38,14 @@ export class CartService {
         }
       })
     );
+  }
+  UpdateStatusesToPending(cartList: Cart[]): Observable<any> {
+    const observables: Observable<any>[] = [];
+    cartList.forEach(cart => {
+      const updateObservable = this.http.put(this.baseurl + '/' + cart.id, { ...cart, status: 'pending' });
+      observables.push(updateObservable);
+    });
+    return forkJoin(observables);
   }
   
 }
